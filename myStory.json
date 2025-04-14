@@ -1,0 +1,91 @@
+{
+    "Title": "Campus Life on the West Side",
+    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
+    "InitialLocation": "Kresge",
+    "Locations": {
+        "Kresge": {
+            "Body": "This is Kresge College, lots of nice trees.",
+            "Choices": [
+                {
+                    "Text": "South",
+                    "Target": "Porter"
+                }
+            ]
+        },
+        "Porter": {
+            "Body": "This is Porter College, the trees are nice here too.",
+            "Choices": [
+                {
+                    "Text": "North",
+                    "Target": "Kresge"
+                },
+                {
+                    "Text": "South",
+                    "Target": "Rachel Carson"
+                },
+                {
+                    "Text": "West",
+                    "Target": "Mystical Woods"
+                }
+            ]
+        },
+        "Mystical Woods": {
+            "Body": "Strange things happen in these woods. Beware the vicious turkeys. You see a turkey approaching you, but it suddenly disappears into the thick mulch. Where did it go?",
+            "Choices": [
+                {
+                    "Text": "East",
+                    "Target": "Porter"
+                },
+                {
+                    "Text": "Check for the turkey",
+                    "Target": "Above The Void"
+                }
+            ]
+        },
+        "Above The Void": {
+            "Body": "You slowly creep forward, and see the hole that the turkey fell in. It's darker than a black hole. You've never seen anything like this before.",
+            "Choices": [
+                {
+                    "Text": "Run back to Porter",
+                    "Target": "Porter"
+                },
+                {
+                    "Text": "Jump in",
+                    "Target": "The Void"
+                }
+            ]
+        },
+        "The Void": {
+            "Body": "You jump in. Nothing happens. Ever."
+        },
+        "Rachel Carson": {
+            "Body": "Rachel Carson College, more sun and fewer trees.",
+            "Choices": [
+                {
+                    "Text": "North",
+                    "Target": "Porter"
+                },
+                {
+                    "Text": "South",
+                    "Target": "Oakes"
+                }
+            ]
+        },
+        "Oakes": {
+            "Body": "Oakes College, even the buildings have tree bark on them.",
+            "Choices": [
+                {
+                    "Text": "North",
+                    "Target": "Rachel Carson"
+                },
+                {
+                    "Text": "South",
+                    "Target": "Beyond"
+                }
+            ]
+        },
+        "Beyond": {
+            "Body": "Grass, don't forget to check for ticks!"
+        }
+    }
+}
