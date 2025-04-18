@@ -66,9 +66,3 @@ class Scene {
         console.warn('no choice handler on scene ', this);
     }
 }
-
-class GameWorldItem {
-    constructor() {
-        this.held = false;
-    }
-}

@@ -2,8 +2,6 @@ class Start extends Scene {
     create() {
         this.engine.setTitle(this.engine.storyData.Title);
         this.engine.addChoice("Start");
-
-        
     }
 
     handleChoice() {
@@ -18,9 +16,6 @@ class Location extends Scene {
 
         if("Choices" in locationData) {
             for(let choice of locationData.Choices) {
-                if ("SpecialTarget" in choice) {
-                    
-                }
                 this.engine.addChoice(choice.Text, choice);
             }
         } else {
@@ -31,50 +26,10 @@ class Location extends Scene {
     handleChoice(choice) {
         if (!choice) {
             this.engine.gotoScene(End);
+            return;
         }
-        else if ("Target" in choice) {
-            this.engine.show("&gt; "+choice.Text);
-            this.engine.gotoScene(Location, choice.Target);
-        }
-        else {
-            this.engine.show("&gt; "+choice.Text);
-            switch (choice.SpecialTarget) {
-                case "Rusty Key":
-                    this.engine.storyData.Items["Rusty Key"].held = true;
-                    break;
-            }
-        }
-    }
-}
-
-class HelmInteraction extends Scene {
-    create(key) {
-        
-        this.helmText = this.engine.show("");
-        this.angle = 0;
-        this.helmText.innerHTML = this.angle;
-
-        let locationData = this.engine.storyData.Locations["Helm Interaction"];
-        if("Choices" in locationData) {
-            for(let choice of locationData.Choices) {
-                this.engine.addChoice(choice.Text, choice);
-            }
-        } else {
-            this.engine.addChoice("The end.")
-        }
-    }
-
-    handleChoice(choice) {
-        if (choice.Text === "<") {
-            this.helmText.innerHTML = --this.angle;
-        }
-        else if (choice.Text === ">") {
-            this.helmText.innerHTML = ++this.angle;
-        }
-        else {
-            this.engine.gotoScene("Helm");
-        }
-
+        this.engine.show("&gt; "+choice.Text);
+        this.engine.gotoScene(Location, choice.Target);
     }
 }
 
@@ -82,6 +37,13 @@ class End extends Scene {
     create() {
         this.engine.show("<hr>");
         this.engine.show(this.engine.storyData.Credits);
+        this.engine.show("<hr>");
+        // reset inventory
+        for (let item in this.engine.storyData.Items) {
+            this.engine.storyData.Items[item].held = false;
+        }
+        // go to the start of the game
+        this.engine.gotoScene(Start);
     }
 }
 

@@ -6,6 +6,9 @@
         "Rusty Key": {
             "held": false
         },
+        "Helm Solved": {
+            "held": false
+        },
         "Captains Words": {
             "held": false
         },
@@ -24,6 +27,10 @@
                 {
                     "Text": "Shipwreck",
                     "Target": "Shipwreck Deck"
+                },
+                {
+                    "Text": "Return to the surface with the ring",
+                    "Target": "Surface Ending"
                 }
             ]
         },
@@ -63,6 +70,35 @@
                 {
                     "Text": "Return to the main hall",
                     "Target": "Middle Floor"
+                },
+                {
+                    "Text": "Examine the corpse",
+                    "Target": "King Corpse",
+                    "NeedItemNotHeld": "Ring"
+                }
+            ]
+        },
+        "King Corpse": {
+            "Body": "It's a corpse, of what seems like a king. He wears a rather simple ring, gold with a ruby in a bezel. Remarkably, the ring's shine has persisted over many years, standing out against the corpse's other jewelry.",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Throne Room"
+                },
+                {
+                    "Text": "Repeat the captain's words",
+                    "Target": "King Corpse Dissolved",
+                    "NeedItemHeld": "Captains Words"
+                }
+            ]
+        },
+        "King Corpse Dissolved": {
+            "Body": "The corpse dissolves into the surrounding water, leaving no trace except for the singular ring which remains suspended in front of you.",
+            "Choices": [
+                {
+                    "Text": "Take the ring",
+                    "Target": "Throne Room",
+                    "PickUpItem": "Ring"
                 }
             ]
         },
@@ -75,12 +111,14 @@
                 },
                 {
                     "Text": "Pick up the key",
-                    "SpecialTarget": "Rusty Key"
+                    "Target": "Deep Chasm",
+                    "NeedItemNotHeld": "Rusty Key",
+                    "PickUpItem": "Rusty Key"
                 }
             ]
         },
         "Shipwreck Deck": {
-            "Body": "You swim towards the shipwreck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin.",
+            "Body": "You swim towards the shipwreck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin. The cabin door is locked; you'll need to find a key to open it.",
             "Choices": [
                 {
                     "Text": "Swim away towards the castle",
@@ -92,7 +130,8 @@
                 },
                 {
                     "Text": "Cabin door",
-                    "SpecialTarget": "Shipwreck Cabin"
+                    "Target": "Shipwreck Cabin",
+                    "NeedItemHeld": "Rusty Key"
                 }
             ]
         },
@@ -105,7 +144,7 @@
                 },
                 {
                     "Text": "Move to the helm",
-                    "SpecialTarget": "Helm Interaction"
+                    "Target": "Helm Interaction"
                 }
             ]
         },
@@ -118,13 +157,88 @@
                 },
                 {
                     "Text": "<",
-                    "SpecialTarget": "Turn Helm Left"
+                    "Target": "Helm Interaction"
                 },
                 {
                     "Text": ">",
-                    "SpecialTarget": "Turn Helm Right"
+                    "Target": "Helm Interaction"
                 }
             ]
+        },
+        "Shipwreck Cabin": {
+            "Body": "You swim into the cabin. You see writing etched into the wall, and a little trapdoor in the corner of the room.",
+            "Choices": [
+                {
+                    "Text": "Return to deck",
+                    "Target": "Shipwreck Deck"
+                },
+                {
+                    "Text": "Swim to the wall",
+                    "Target": "Writing on the Wall",
+                    "NeedItemNotHeld": "Helm Solved"
+                },
+                {
+                    "Text": "Swim to the wall",
+                    "Target": "Full Writing on the Wall",
+                    "NeedItemHeld": "Helm Solved",
+                    "PickUpItem": "Captains Words"
+                },
+                {
+                    "Text": "Swim to the trapdoor",
+                    "Target": "Storage Room"
+                }
+            ]
+        },
+        "Writing on the Wall": {
+            "Body": "Sloppily carved into the wall of the ship's cabin is an unfinished message: 'I’m lost. Directionless in my search for the king of the sea. Lost faith from my crew. I know now that there is no destination, and no other choice but to give up. I just wish he could hear my last words: _________'",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Shipwreck Cabin"
+                }
+            ]
+        },
+        "Full Writing on the Wall": {
+            "Body": "Sloppily carved into the wall of the ship's cabin is the COMPLETE message!: 'I’m lost. Directionless in my search for the king of the sea. Lost faith from my crew. I know now that there is no destination, and no other choice but to give up. I just wish he could hear my last words: Take me Neptune, my love. Drown me in your brine. Let it poison my body like your allure poisoned my mind.'",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Shipwreck Cabin"
+                }
+            ]
+        },
+        "Storage Room": {
+            "Body": "It's a storage room flooded with brine. There's junk everywhere, but only a couple things catch your eye. There's a prison cell on one side, with a journal kept on the wall behind the bars. There's also a statue labeled 'Nerites', displaying a man reaching out with one finger in front of the rest.",
+            "Choices": [
+                {
+                    "Text": "Return to the cabin",
+                    "Target": "Shipwreck Cabin"
+                },
+                {
+                    "Text": "Read the journal",
+                    "Target": "Prison Journal"
+                },
+                {
+                    "Text": "Place the ring on the statue",
+                    "Target": "Statue Ending",
+                    "NeedItemHeld": "Ring"
+                }
+            ]
+        },
+        "Prison Journal": {
+            "Body": "The journal reads: 'Day 1: I overhear that the captain has set course for Chariot Isle, East of here. We should arrive in a few days. Day 5: According to the crew, the captain has gone mad, and we are now circling this damned isle, looking for something. Day 8: The captain has given up, and we now set sail northwest, indefinitely. Day 9: By the captain's sabotage, this ship keeping me captive slowly sinks. While the crew escapes, I must patiently await for the rising waters to drown me. It seems the captain will do the same, while begging, reaching towards the sky, that someone points his vessel in the right direction.'",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Storage Room"
+                }
+            ]
+        },
+        "Surface Ending": {
+            "Body": "You get to the surface and you got the ring and you get money hooray"
+        },
+        "Statue Ending": {
+            "Body": "The statue dissolves with the ring on it. Things feel at peace. You return to the surface without the ring."
         }
     }
 }
