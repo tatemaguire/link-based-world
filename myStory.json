@@ -1,91 +1,130 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "Ring of Neptune",
+    "Credits": "Framework created by Adam Smith (amsmith@ucsc.edu). Game created by Tate Maguire (tpmaguir@ucsc.edu).",
+    "InitialLocation": "Outside",
+    "Items": {
+        "Rusty Key": {
+            "held": false
+        },
+        "Captains Words": {
+            "held": false
+        },
+        "Ring": {
+            "held": false
+        }
+    },
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Outside": {
+            "Body": "You are underwater, the ring is in the castle but there's also a shipwreck over there.",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "Castle",
+                    "Target": "Castle Entrance Room"
+                },
+                {
+                    "Text": "Shipwreck",
+                    "Target": "Shipwreck Deck"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+        "Castle Entrance Room": {
+            "Body": "The entrance to the castle, you can swim down through gaps in the floorboards.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Go back outside",
+                    "Target": "Outside"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
-                },
-                {
-                    "Text": "West",
-                    "Target": "Mystical Woods"
+                    "Text": "Swim Down",
+                    "Target": "Middle Floor"
                 }
             ]
         },
-        "Mystical Woods": {
-            "Body": "Strange things happen in these woods. Beware the vicious turkeys. You see a turkey approaching you, but it suddenly disappears into the thick mulch. Where did it go?",
+        "Middle Floor": {
+            "Body": "You swim down into the bottom floor, beneath you is endless darkness. On the side, a shimmer of light comes through from an archway, the throne room.",
             "Choices": [
                 {
-                    "Text": "East",
-                    "Target": "Porter"
+                    "Text": "Swim back to the entrance",
+                    "Target": "Castle Entrance Room"
                 },
                 {
-                    "Text": "Check for the turkey",
-                    "Target": "Above The Void"
+                    "Text": "Swim into the depths",
+                    "Target": "Deep Chasm"
+                },
+                {
+                    "Text": "Throne room",
+                    "Target": "Throne Room"
                 }
             ]
         },
-        "Above The Void": {
-            "Body": "You slowly creep forward, and see the hole that the turkey fell in. It's darker than a black hole. You've never seen anything like this before.",
+        "Throne Room": {
+            "Body": "You enter the throne room. On the throne is a corpse, with its head slouched to the side, hair spread, wavy, but stiff in the still water. Cracks in the ceiling let glimpses of light in, illuminating the room.",
             "Choices": [
                 {
-                    "Text": "Run back to Porter",
-                    "Target": "Porter"
-                },
-                {
-                    "Text": "Jump in",
-                    "Target": "The Void"
+                    "Text": "Return to the main hall",
+                    "Target": "Middle Floor"
                 }
             ]
         },
-        "The Void": {
-            "Body": "You jump in. Nothing happens. Ever."
-        },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+        "Deep Chasm": {
+            "Body": "You swim down into the darkness, your movement disrupts the water that had been stagnant in this chasm for god knows how long. In the darkness, a glimmer, a key.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Porter"
+                    "Text": "Return to the main hall",
+                    "Target": "Middle Floor"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "Pick up the key",
+                    "SpecialTarget": "Rusty Key"
                 }
             ]
         },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+        "Shipwreck Deck": {
+            "Body": "You swim towards the shipwreck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Text": "Swim away towards the castle",
+                    "Target": "Outside"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "To the helm",
+                    "Target": "Helm"
+                },
+                {
+                    "Text": "Cabin door",
+                    "SpecialTarget": "Shipwreck Cabin"
                 }
             ]
         },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+        "Helm": {
+            "Body": "You swim past a mast labeled 'N' to reach the helm of the ship. It's delicately carved out of cedar, accented with one silver knob, pointing up towards the mast in front of you. A silver 'S' is stamped on the deck below your feet.",
+            "Choices": [
+                {
+                    "Text": "Return to the deck",
+                    "Target": "Shipwreck Deck"
+                },
+                {
+                    "Text": "Move to the helm",
+                    "SpecialTarget": "Helm Interaction"
+                }
+            ]
+        },
+        "Helm Interaction": {
+            "Body": "",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Helm"
+                },
+                {
+                    "Text": "<",
+                    "SpecialTarget": "Turn Helm Left"
+                },
+                {
+                    "Text": ">",
+                    "SpecialTarget": "Turn Helm Right"
+                }
+            ]
         }
     }
 }

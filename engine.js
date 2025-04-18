@@ -13,12 +13,13 @@ class Engine {
         this.output = document.body.appendChild(document.createElement("div"));
         this.actionsContainer = document.body.appendChild(document.createElement("div"));
 
+        // fills storyData, then starts first
         fetch(storyDataUrl).then(
             (response) => response.json()
         ).then(
             (json) => {
                 this.storyData = json;
-                this.gotoScene(firstSceneClass)
+                this.gotoScene(firstSceneClass);
             }
         );
     }
@@ -48,6 +49,7 @@ class Engine {
         let div = document.createElement("div");
         div.innerHTML = msg;
         this.output.appendChild(div);
+        return div;
     }
 }
 
@@ -62,5 +64,11 @@ class Scene {
 
     handleChoice(action) {
         console.warn('no choice handler on scene ', this);
+    }
+}
+
+class GameWorldItem {
+    constructor() {
+        this.held = false;
     }
 }
