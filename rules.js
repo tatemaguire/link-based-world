@@ -14,8 +14,21 @@ class Location extends Scene {
         let locationData = this.engine.storyData.Locations[key];
         this.engine.show(locationData.Body);
 
+        this.addChoices(locationData);
+    }
+
+    addChoices(locationData) {
         if("Choices" in locationData) {
             for(let choice of locationData.Choices) {
+                // if it needs an item but you don't have it, don't display this choice
+                if ("NeedItemHeld" in choice && this.engine.storyData.Items[choice.NeedItemHeld].held === false) {
+                    continue;
+                }
+                // if it needs to not have an item but you have it, don't display this choice
+                if ("NeedItemNotHeld" in choice && this.engine.storyData.Items[choice.NeedItemNotHeld].held === true) {
+                    continue;
+                }
+                // otherwise, display the choice
                 this.engine.addChoice(choice.Text, choice);
             }
         } else {
@@ -24,12 +37,63 @@ class Location extends Scene {
     }
 
     handleChoice(choice) {
+        // if there are no choices, this is the end!
         if (!choice) {
             this.engine.gotoScene(End);
             return;
         }
+        // manage PickUpItem property
+        if ("PickUpItem" in choice) {
+            this.engine.storyData.Items[choice.PickUpItem].held = true;
+        }
+        // manage SpecialTarget helm interaction
+        if (choice.SpecialTarget === "HelmInteraction") {
+            this.engine.show("&gt; "+choice.Text);
+            this.engine.gotoScene(HelmInteraction, choice.Target);
+            return;
+        }
+        // show the choice you made and start that target scene
         this.engine.show("&gt; "+choice.Text);
         this.engine.gotoScene(Location, choice.Target);
+    }
+}
+
+class HelmInteraction extends Location {
+    create(key) {
+        this.locationData = this.engine.storyData.Locations[key];
+
+        this.helmPositions = this.engine.storyData.HelmPositions;
+        this.bodyText = this.engine.show(this.locationData.Body);
+
+        this.updateHelmText();
+    }
+
+    updateHelmText() {
+        this.bodyText.innerHTML = this.helmPositions[this.engine.storyData.HelmAngle];
+        super.addChoices(this.locationData);
+    }
+
+    handleChoice(choice) {
+        if (choice.Text === "<") {
+            // decrease HelmAngle, looping around if necessary
+            if (--this.engine.storyData.HelmAngle < 0) {
+                this.engine.storyData.HelmAngle += this.helmPositions.length;
+            }
+            this.updateHelmText();
+        }
+        else if (choice.Text === ">") {
+            // increase HelmAngle, looping around if necessary
+            if (++this.engine.storyData.HelmAngle > this.helmPositions.length-1) {
+                this.engine.storyData.HelmAngle -= this.helmPositions.length;
+            }
+            this.updateHelmText();
+        }
+        else {
+            super.handleChoice(choice);
+        }
+
+        // sets Helm Solved condition to true if its in the correct location, 5 (southeast)
+        this.engine.storyData.Items["Helm Solved"].held = (this.engine.storyData.HelmAngle === 5)
     }
 }
 

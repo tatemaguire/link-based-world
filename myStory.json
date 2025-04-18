@@ -1,7 +1,18 @@
 {
     "Title": "Ring of Neptune",
-    "Credits": "Framework created by Adam Smith (amsmith@ucsc.edu). Game created by Tate Maguire (tpmaguir@ucsc.edu).",
+    "Credits": "Game created by Tate Maguire (tpmaguir@ucsc.edu).",
     "InitialLocation": "Outside",
+    "HelmAngle": 0,
+    "HelmPositions": [
+        "N",
+        "NW",
+        "W",
+        "SW",
+        "S",
+        "SE",
+        "E",
+        "NE"
+    ],
     "Items": {
         "Rusty Key": {
             "held": false
@@ -30,15 +41,16 @@
                 },
                 {
                     "Text": "Return to the surface with the ring",
-                    "Target": "Surface Ending"
+                    "Target": "Surface Ending",
+                    "NeedItemHeld": "Ring"
                 }
             ]
         },
         "Castle Entrance Room": {
-            "Body": "The entrance to the castle, you can swim down through gaps in the floorboards.",
+            "Body": "The entrance to the castle, which welcomes its guests with its title: 'Chariot Isle Castle: Home of the King of the Sea'. There's an opening in the floor that leads to another room.",
             "Choices": [
                 {
-                    "Text": "Go back outside",
+                    "Text": "Return outside",
                     "Target": "Outside"
                 },
                 {
@@ -59,7 +71,7 @@
                     "Target": "Deep Chasm"
                 },
                 {
-                    "Text": "Throne room",
+                    "Text": "Swim to the throne room",
                     "Target": "Throne Room"
                 }
             ]
@@ -121,15 +133,15 @@
             "Body": "You swim towards the shipwreck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin. The cabin door is locked; you'll need to find a key to open it.",
             "Choices": [
                 {
-                    "Text": "Swim away towards the castle",
+                    "Text": "Return",
                     "Target": "Outside"
                 },
                 {
-                    "Text": "To the helm",
+                    "Text": "Swim to the helm",
                     "Target": "Helm"
                 },
                 {
-                    "Text": "Cabin door",
+                    "Text": "Unlock the cabin door",
                     "Target": "Shipwreck Cabin",
                     "NeedItemHeld": "Rusty Key"
                 }
@@ -143,8 +155,9 @@
                     "Target": "Shipwreck Deck"
                 },
                 {
-                    "Text": "Move to the helm",
-                    "Target": "Helm Interaction"
+                    "Text": "Move the helm",
+                    "Target": "Helm Interaction",
+                    "SpecialTarget": "HelmInteraction"
                 }
             ]
         },
@@ -226,7 +239,7 @@
             ]
         },
         "Prison Journal": {
-            "Body": "The journal reads: 'Day 1: I overhear that the captain has set course for Chariot Isle, East of here. We should arrive in a few days. Day 5: According to the crew, the captain has gone mad, and we are now circling this damned isle, looking for something. Day 8: The captain has given up, and we now set sail northwest, indefinitely. Day 9: By the captain's sabotage, this ship keeping me captive slowly sinks. While the crew escapes, I must patiently await for the rising waters to drown me. It seems the captain will do the same, while begging, reaching towards the sky, that someone points his vessel in the right direction.'",
+            "Body": "The journal reads: 'Day 1: I overhear that the captain has set course for Chariot Isle, East of here. We should arrive in a few days. Day 5: According to the crew, the captain has gone mad, and we are now circling this damned isle, looking for something. Day 8: The captain has given up, perhaps too early, and we now set sail northwest, indefinitely. Day 9: By the captain's sabotage, this ship keeping me captive slowly sinks. While the crew escapes, I must patiently await for the rising waters to drown me. It seems the captain will do the same, while reaching towards the sky, begging that someone points his vessel in the right direction.'",
             "Choices": [
                 {
                     "Text": "Return",
