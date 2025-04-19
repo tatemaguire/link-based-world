@@ -1,3 +1,14 @@
+const HELM_ASCII = [
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>          │▓│          </div><div>          │▓│          </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>           │           </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │       /▓  </div><div>   \\       │       ▓/  </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>           │           </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │           </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║  ┬┬</div><div>────╫──────╬──────╫──▓▓</div><div>    ║     /│\\     ║  ┴┴</div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>           │           </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │           </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       ▓\\  </div><div>           │       \\▓  </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │           </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>          │▓│          </div><div>          │▓│          </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │           </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>  /▓       │       \\   </div><div>  ▓/       │           </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>           │           </div><div>   \\       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>┬┬  ║     \\│/     ║    </div><div>▓▓──╫──────╬──────╫────</div><div>┴┴  ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>           │           </div><div>                       </div><div>           S           </div></div>',
+    '<div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;background-color: #ffffff; color: #000000;"><div>           N           </div><div>                       </div><div>  ▓\\       │           </div><div>  \\▓       │       /   </div><div>     \\  ╦══╪══╦  /     </div><div>      ╦╩   │   ╩╦      </div><div>     ║  \\  │  /  ║     </div><div>    ║     \\│/     ║    </div><div>────╫──────╬──────╫────</div><div>    ║     /│\\     ║    </div><div>     ║  /  │  \\  ║     </div><div>      ╩╦   │   ╦╩      </div><div>     /  ╩══╪══╩  \\     </div><div>   /       │       \\   </div><div>           │           </div><div>                       </div><div>           S           </div></div>'
+];
+
 class Start extends Scene {
     create() {
         this.engine.setTitle(this.engine.storyData.Title);
@@ -62,14 +73,13 @@ class HelmInteraction extends Location {
     create(key) {
         this.locationData = this.engine.storyData.Locations[key];
 
-        this.helmPositions = this.engine.storyData.HelmPositions;
         this.bodyText = this.engine.show(this.locationData.Body);
 
         this.updateHelmText();
     }
 
     updateHelmText() {
-        this.bodyText.innerHTML = this.helmPositions[this.engine.storyData.HelmAngle];
+        this.bodyText.innerHTML = HELM_ASCII[this.engine.storyData.HelmAngle];
         super.addChoices(this.locationData);
     }
 
@@ -77,14 +87,14 @@ class HelmInteraction extends Location {
         if (choice.Text === "<") {
             // decrease HelmAngle, looping around if necessary
             if (--this.engine.storyData.HelmAngle < 0) {
-                this.engine.storyData.HelmAngle += this.helmPositions.length;
+                this.engine.storyData.HelmAngle += HELM_ASCII.length;
             }
             this.updateHelmText();
         }
         else if (choice.Text === ">") {
             // increase HelmAngle, looping around if necessary
-            if (++this.engine.storyData.HelmAngle > this.helmPositions.length-1) {
-                this.engine.storyData.HelmAngle -= this.helmPositions.length;
+            if (++this.engine.storyData.HelmAngle > HELM_ASCII.length-1) {
+                this.engine.storyData.HelmAngle -= HELM_ASCII.length;
             }
             this.updateHelmText();
         }
@@ -92,8 +102,8 @@ class HelmInteraction extends Location {
             super.handleChoice(choice);
         }
 
-        // sets Helm Solved condition to true if its in the correct location, 5 (southeast)
-        this.engine.storyData.Items["Helm Solved"].held = (this.engine.storyData.HelmAngle === 5)
+        // sets Helm Solved condition to true if its in the correct location, 3 (southeast)
+        this.engine.storyData.Items["Helm Solved"].held = (this.engine.storyData.HelmAngle === 3)
     }
 }
 

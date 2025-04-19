@@ -3,16 +3,6 @@
     "Credits": "Game created by Tate Maguire (tpmaguir@ucsc.edu).",
     "InitialLocation": "Outside",
     "HelmAngle": 0,
-    "HelmPositions": [
-        "N",
-        "NW",
-        "W",
-        "SW",
-        "S",
-        "SE",
-        "E",
-        "NE"
-    ],
     "Items": {
         "Rusty Key": {
             "held": false
@@ -29,14 +19,14 @@
     },
     "Locations": {
         "Outside": {
-            "Body": "You are underwater, the ring is in the castle but there's also a shipwreck over there.",
+            "Body": "117 meters beneath the surface, the Ring of Neptune calls your name. It's rumored to lie within the walls of the castle submerged before you. But out of the corner of your eye, you notice a shipwreck, northwest of here.",
             "Choices": [
                 {
-                    "Text": "Castle",
+                    "Text": "Enter the castle",
                     "Target": "Castle Entrance Room"
                 },
                 {
-                    "Text": "Shipwreck",
+                    "Text": "Swim to the shipwreck",
                     "Target": "Shipwreck Deck"
                 },
                 {
@@ -47,7 +37,7 @@
             ]
         },
         "Castle Entrance Room": {
-            "Body": "The entrance to the castle, which welcomes its guests with its title: 'Chariot Isle Castle: Home of the King of the Sea'. There's an opening in the floor that leads to another room.",
+            "Body": "The entrance room of the castle, which celebrates its existence with intricately carved words along the stone: 'Chariot Isle Castle'. There's an opening in the floor that leads to the main hall.",
             "Choices": [
                 {
                     "Text": "Return outside",
@@ -55,33 +45,33 @@
                 },
                 {
                     "Text": "Swim Down",
-                    "Target": "Middle Floor"
+                    "Target": "Main Hall"
                 }
             ]
         },
-        "Middle Floor": {
-            "Body": "You swim down into the bottom floor, beneath you is endless darkness. On the side, a shimmer of light comes through from an archway, the throne room.",
+        "Main Hall": {
+            "Body": "You swim into the main hall. It's grand and empty, and almost recognizable if it weren't for the lack of a floor. Below you is infinite darkness. But ahead of you is the centerpiece of the room: the entrance to the the throne room.",
             "Choices": [
                 {
-                    "Text": "Swim back to the entrance",
+                    "Text": "Return to the castle entrance",
                     "Target": "Castle Entrance Room"
-                },
-                {
-                    "Text": "Swim into the depths",
-                    "Target": "Deep Chasm"
                 },
                 {
                     "Text": "Swim to the throne room",
                     "Target": "Throne Room"
+                },
+                {
+                    "Text": "Swim down into the depths",
+                    "Target": "Deep Chasm"
                 }
             ]
         },
         "Throne Room": {
-            "Body": "You enter the throne room. On the throne is a corpse, with its head slouched to the side, hair spread, wavy, but stiff in the still water. Cracks in the ceiling let glimpses of light in, illuminating the room.",
+            "Body": "The throne room. On the throne is a man's body, with its head slouched to the side. Its hair spread, wavy, but stiff in the still water. Cracks in the ceiling let glimpses of light in, which illuminate from behind the king and his throne.",
             "Choices": [
                 {
                     "Text": "Return to the main hall",
-                    "Target": "Middle Floor"
+                    "Target": "Main Hall"
                 },
                 {
                     "Text": "Examine the corpse",
@@ -91,7 +81,7 @@
             ]
         },
         "King Corpse": {
-            "Body": "It's a corpse, of what seems like a king. He wears a rather simple ring, gold with a ruby in a bezel. Remarkably, the ring's shine has persisted over many years, standing out against the corpse's other jewelry.",
+            "Body": "It's a corpse, of what seems like a king. His body, dressed in nothing, is just barely beginning to rot everywhere except his right hand. It hangs off the side of the chair, pale and clean, in contrast to the rest of his body's green. On his index finger lies a rather simple ring. Could this be the ring you came here for? In your lust for riches, you try to pull the ring off, but it doesn't budge.",
             "Choices": [
                 {
                     "Text": "Return",
@@ -119,7 +109,7 @@
             "Choices": [
                 {
                     "Text": "Return to the main hall",
-                    "Target": "Middle Floor"
+                    "Target": "Main Hall"
                 },
                 {
                     "Text": "Pick up the key",
@@ -130,10 +120,10 @@
             ]
         },
         "Shipwreck Deck": {
-            "Body": "You swim towards the shipwreck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin. The cabin door is locked; you'll need to find a key to open it.",
+            "Body": "Far from the castle, you arrive at the shipwreck's deck. Small bits of algae try to grow on the cedar wood, but the lack of light at this depth makes their life a struggle. There's a helm on the far edge of the deck, and a door below it to the cabin. The cabin door is locked; you'll need to find a key to open it.",
             "Choices": [
                 {
-                    "Text": "Return",
+                    "Text": "Return to the castle",
                     "Target": "Outside"
                 },
                 {
@@ -148,14 +138,14 @@
             ]
         },
         "Helm": {
-            "Body": "You swim past a mast labeled 'N' to reach the helm of the ship. It's delicately carved out of cedar, accented with one silver knob, pointing up towards the mast in front of you. A silver 'S' is stamped on the deck below your feet.",
+            "Body": "Past a mast labeled 'N', you find yourself at the helm of the ship. It's delicately carved out of cedar, accented with one silver knob, pointing up towards the mast in front of you. A silver 'S' is stamped on the deck below your feet.",
             "Choices": [
                 {
                     "Text": "Return to the deck",
                     "Target": "Shipwreck Deck"
                 },
                 {
-                    "Text": "Move the helm",
+                    "Text": "Turn the helm",
                     "Target": "Helm Interaction",
                     "SpecialTarget": "HelmInteraction"
                 }
@@ -179,10 +169,10 @@
             ]
         },
         "Shipwreck Cabin": {
-            "Body": "You swim into the cabin. You see writing etched into the wall, and a little trapdoor in the corner of the room.",
+            "Body": "Past the now-unlocked door and into the cabin, you see writing etched into the wall, and a little trapdoor in the corner of the room.",
             "Choices": [
                 {
-                    "Text": "Return to deck",
+                    "Text": "Return to the deck",
                     "Target": "Shipwreck Deck"
                 },
                 {
@@ -212,7 +202,7 @@
             ]
         },
         "Full Writing on the Wall": {
-            "Body": "Sloppily carved into the wall of the ship's cabin is the COMPLETE message!: 'I’m lost. Directionless in my search for the king of the sea. Lost faith from my crew. I know now that there is no destination, and no other choice but to give up. I just wish he could hear my last words: Take me Neptune, my love. Drown me in your brine. Let it poison my body like your allure poisoned my mind.'",
+            "Body": "More writing appeared! The message is now complete: 'I’m lost. Directionless in my search for the king of the sea. Lost faith from my crew. I know now that there is no destination, and no other choice but to give up. I just wish he could hear my last words: Take me Neptune, my love. Drown me in your brine. Let it poison my body like your allure poisoned my mind.'",
             "Choices": [
                 {
                     "Text": "Return",
@@ -221,7 +211,7 @@
             ]
         },
         "Storage Room": {
-            "Body": "It's a storage room flooded with brine. There's junk everywhere, but only a couple things catch your eye. There's a prison cell on one side, with a journal kept on the wall behind the bars. There's also a statue labeled 'Nerites', displaying a man reaching out with one finger in front of the rest.",
+            "Body": "Beind the trapdoor is a storage room flooded with brine. There's junk everywhere, but only a couple things catch your eye. There's a prison cell on one side, with a journal kept on the wall behind the bars. There's also a statue labeled 'Nerites', displaying a man reaching up to the sky with his right hand, one finger in front of the rest.",
             "Choices": [
                 {
                     "Text": "Return to the cabin",
@@ -239,7 +229,7 @@
             ]
         },
         "Prison Journal": {
-            "Body": "The journal reads: 'Day 1: I overhear that the captain has set course for Chariot Isle, East of here. We should arrive in a few days. Day 5: According to the crew, the captain has gone mad, and we are now circling this damned isle, looking for something. Day 8: The captain has given up, perhaps too early, and we now set sail northwest, indefinitely. Day 9: By the captain's sabotage, this ship keeping me captive slowly sinks. While the crew escapes, I must patiently await for the rising waters to drown me. It seems the captain will do the same, while reaching towards the sky, begging that someone points his vessel in the right direction.'",
+            "Body": "The journal reads: 'Day 1: I overhear that the captain has set course for Chariot Isle, East of here. We should arrive in a few days. Day 5: According to the crew, the captain has gone mad, and we are now circling this damned isle, looking for something. Day 8: The captain has given up, perhaps too early, and we now set sail northwest, indefinitely. Day 9: By the captain's sabotage, this ship keeping me captive slowly sinks. While the crew escapes, I must patiently await for the rising waters to drown me. It seems the captain will do the same, while reaching towards the sky, begging that someone points his vessel in the right direction. He's begging to send a message, what that is I don't know, but only if he's given the right directions. Madman.'",
             "Choices": [
                 {
                     "Text": "Return",
@@ -248,10 +238,10 @@
             ]
         },
         "Surface Ending": {
-            "Body": "You get to the surface and you got the ring and you get money hooray"
+            "Body": "You return to the surface with the Ring of Neptune in your hand! Now you get a lot of money. Yay!"
         },
         "Statue Ending": {
-            "Body": "The statue dissolves with the ring on it. Things feel at peace. You return to the surface without the ring."
+            "Body": "The statue slowly dissolves, like the king's body did before. This time, the ring is taken with him; your treasure is gone. You return to the surface relieved. Content."
         }
     }
 }
